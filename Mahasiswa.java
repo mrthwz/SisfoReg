@@ -1,6 +1,6 @@
 /* 	Nama 	: Fadma Sari Yuenam E.G.
 	Kelas 	: IF - 38 - 02
-	NIM		:1301144352
+	NIM	:1301144352
 */
 
 public class Mahasiswa extends Orang{
