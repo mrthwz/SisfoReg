@@ -1,0 +1,26 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tubes;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author Adrian G Nurcahyo
+ */
+public class inputmahasiswa1 {
+    private ArrayList<mahasiswa1> d = new ArrayList();
+    
+    
+    public void addMahasiswa(mahasiswa1 mahasiswa){
+		d.add(mahasiswa);
+		
+	}
+	
+	public ArrayList<mahasiswa1> getMahasiswa() {
+		return d;
+	}
+}
