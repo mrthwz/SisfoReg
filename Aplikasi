@@ -1,1 +1,297 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tubes;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+/**
+ *
+ * @author Adrian G Nurcahyo
+ */
+public class Aplikasi {
+ 
+     //DOSEN//
+        private ArrayList<dosen1> d = new ArrayList(); 
+ 	public void addDosen(dosen1 dosen){
+		d.add(dosen);
+        }
+        
+	public ArrayList<dosen1> getDosen() {
+		return d;
+	}     
+        
+        public void deleteDosen(int index){
+            d.remove(index);
+        }
+        
+//MAHASISWA//        
+
+        private ArrayList<mahasiswa1> d1 = new ArrayList();
+    
+    
+        public void addMahasiswa(mahasiswa1 mahasiswa){
+		d1.add(mahasiswa);
+		
+	}
+	
+	public ArrayList<mahasiswa1> getMahasiswa() {
+		return d1;
+	}
+        
+//MATAKULIAH//
+        private ArrayList<matakuliah1> d2 = new ArrayList();
+    
+    
+        public void addMatakuliah(matakuliah1 matakuliah){
+		d2.add(matakuliah);
+		
+	}
+	
+	public ArrayList<matakuliah1> getMatakuliah() {
+		return d2;
+	}
+       
+        
+public  boolean searchDosen (String input){
+     if(input.equals(d.get(0).getKodeDosen())){
+         return true;
+         /*
+         System.out.println("Kode Dosen : "+d.get(0).getKodeDosen());
+                System.out.println("Nama Dosen : "+d.get(0).getNama());
+                System.out.println("Alamat Dosen : "+d.get(0).getAlamat());
+                System.out.println("Email Dosen : "+d.get(0).getEmail());
+                System.out.println("Nomor Induk Dosen : "+d.get(0).getNoInduk());
+                 */
+     }
+            return false;
+}
+
+public boolean searchMahasiswa (String input){
+     if(input.equals(d1.get(0).getNoIndukMhs())){
+         return true;
+         /*
+         System.out.println("Nama Mahasiswa : "+d1.get(0).getNamaMhs());
+         System.out.println("Email : "+d1.get(0).getEmailMhs());
+         System.out.println("Nomor Induk : "+d1.get(0).getNoIndukMhs());
+         System.out.println("Alamat Mahasiswa : "+d1.get(0).getAlamatMhs());
+          */
+     }
+            return false;
+}
+
+public boolean searchMatakuliah (String input){
+     if(input.equals(d2.get(0).getKodeMK())){
+         return true;
+         /*
+         System.out.println("Nama Mata Kuliah : "+d2.get(0).getNamaMK());
+         System.out.println("Kode Mata Kuliah : "+d2.get(0).getKodeMK());
+         System.out.println("Kode Dosen Mata Kuliah : "+d2.get(0).getKodeDosenMK());
+         System.out.println("Nama Dosen Mata Kuliah : "+d2.get(0).getNamaDosen());
+         System.out.println("Shift Mata Kuliah : "+d2.get(0).getShift());
+          */
+     }
+            return false;   
+}
+
+        
+//MENU
+        public void menuSatu(String kodeDosen,String nama, String alamat,String email,String noInduk){	
+                inputdosen1 id = new inputdosen1();                   
+		dosen1 d1 = new dosen1(kodeDosen,nama,alamat,email,noInduk);
+		d.add(d1);
+         
+                System.out.println("Kode Dosen : "+d.get(0).getKodeDosen());
+                System.out.println("Nama Dosen : "+d.get(0).getNama());
+                System.out.println("Alamat Dosen : "+d.get(0).getAlamat());
+                System.out.println("Email Dosen : "+d.get(0).getEmail());
+                System.out.println("Nomor Induk Dosen : "+d.get(0).getNoInduk());
+
+        }
+        public void menuDua(String namaMhs,String emailMhs, String noIndukMhs, String alamatMhs){ 
+                inputmahasiswa1 id1 = new inputmahasiswa1();
+		mahasiswa1 d2 = new mahasiswa1(namaMhs,emailMhs,noIndukMhs,alamatMhs);
+		d1.add(d2);
+                
+                System.out.println("Nama Mahasiswa : "+d1.get(0).getNamaMhs());
+                System.out.println("Email : "+d1.get(0).getEmailMhs());
+                System.out.println("Nomor Induk : "+d1.get(0).getNoIndukMhs());
+                System.out.println("Alamat Mahasiswa : "+d1.get(0).getAlamatMhs());
+        }
+        public void menuTiga(String namaMK, String kodeMK, String kodeDosenMK, String namaDosen, String shift){
+                inputmatakuliah1 id2 = new inputmatakuliah1();
+		matakuliah1 d3 = new matakuliah1(namaMK, kodeMK, kodeDosenMK, namaDosen, shift);
+		d2.add(d3);
+                
+                System.out.println("Nama Mata Kuliah : "+d2.get(0).getNamaMK());
+                System.out.println("Kode Mata Kuliah : "+d2.get(0).getKodeMK());
+                System.out.println("Kode Dosen Mata Kuliah : "+d2.get(0).getKodeDosenMK());
+                System.out.println("Nama Dosen Mata Kuliah : "+d2.get(0).getNamaDosen());
+                System.out.println("Shift Mata Kuliah : "+d2.get(0).getShift());
+        }
+        public void menuEmpat(int input){
+            
+            d.remove(input);
+                
+        }
+        public void menuLima(){
+                d1.remove(d2);
+        }
+        public void menuEnam(matakuliah1 d3){
+                d2.remove(d3);
+        }
+        
+        
+        public void mainMenu(){
+            Scanner ahiy = new Scanner(System.in);
+            String dosen, mahasiswa, matakuliah;
+            int menu;
+            
+            System.out.println("Registrasi Mata Kuliah");
+            System.out.println("1. Input Dosen");
+            System.out.println("2. Input Mahasiswa");
+            System.out.println("3. Input Mata Kuliah");
+            System.out.println("4. Hapus Dosen");
+            System.out.println("5. Hapus Mahasiswa");
+            System.out.println("6. Hapus Mata Kuiah");
+            System.out.println("7. Cari Dosen");
+            System.out.println("8. Cari Mahasiswa");
+            System.out.println("9, Cari Mata Kuliah");
+            System.out.println("Masukan Pilihan : ");
+            menu = ahiy.nextInt();
+            switch (menu){
+                case 1: 
+                    Scanner ahoy = new Scanner(System.in);
+                    System.out.println("Masukan kode : ");
+                    String kodeDosen = ahoy.nextLine();
+                    System.out.println("Masukan nama : ");
+                    String nama = ahoy.nextLine();
+                    System.out.println("Masukan alamat : ");
+                    String alamat = ahoy.nextLine();
+                    System.out.println("Masukan email : ");
+                    String email = ahoy.nextLine();
+                    System.out.println("Masukan nomor induk : ");
+                    String noInduk = ahoy.nextLine();
+                    menuSatu(kodeDosen, nama,alamat,email,noInduk);
+                    mainMenu();
+                    break;
+             
+                    
+                case 2 :
+                    Scanner ahay = new Scanner(System.in);	
+                    System.out.println("Masukan Nama Mahasiswa : ");
+                    String namaMhs = ahay.nextLine();
+                    System.out.println("Masukan Email Mahasiswa : ");
+                    String emailMhs = ahay.nextLine();
+                    System.out.println("Masukan Nomor Induk Mahasiswa : ");
+                    String noIndukMhs = ahay.nextLine();
+                    System.out.println("Masukan Alamat Mahasiswa : ");
+                    String alamatMhs = ahay.nextLine();
+                    menuDua(namaMhs,emailMhs,noIndukMhs,alamatMhs);
+                    mainMenu();
+                    break;
+                case 3 :
+                    Scanner ahuy = new Scanner(System.in);			
+                    String namaMK, kodeMK, kodeDosenMK, namaDosen, shift;
+                    System.out.println("Masukan Nama Mata Kuliah : ");
+                    namaMK = ahuy.nextLine();
+                    System.out.println("Masukan Kode Mata Kuliah : ");
+                    kodeMK = ahuy.nextLine();
+                    System.out.println("Masukan Kode Dosen Mata Kuliah : ");
+                    kodeDosenMK = ahuy.nextLine();
+                    System.out.println("Masukan Nama Dosen Mata Kuliah : ");
+                    namaDosen = ahuy.nextLine();
+                    System.out.println("Masukan Shift Mata Kuliah : ");
+                    shift = ahuy.nextLine();
+                    menuTiga(namaMK, kodeMK, kodeDosenMK, namaDosen, shift);
+                    mainMenu();
+                    break;
+             case 4 :
+                    Scanner cari = new Scanner (System.in);
+                    System.out.println("Masukkan index yang akan dihapus : ");
+                    String input = cari.nextLine();
+                    if(searchDosen (input)==true){
+                        
+						menuEmpat(input);
+						
+                    }
+                    mainMenu();
+                    break;
+             case 5 :
+                    Scanner cari1 = new Scanner (System.in);
+                    System.out.println("Masukkan nomor induk mahasiswa yang akan dicari : ");
+                    String input1 = cari1.next();
+                    if(searchMahasiswa (input1)== true){
+                        menuLima();
+                    }
+                     else
+                        System.out.println("data tidak ditemukan");
+                    mainMenu();
+                    break;
+             case 6 :
+                    Scanner cari2 = new Scanner (System.in);
+                    System.out.println("Masukkan kode mata kuliah yang akan dicari : ");
+                    String input2 = cari2.next();
+                    if(searchMahasiswa (input2)== true){
+                        menuEnam();
+                    }
+                     else
+                        System.out.println("data tidak ditemukan");
+                    mainMenu();
+                    break;
+                 
+             case 7 : 
+                    Scanner cari3 = new Scanner (System.in);
+                    System.out.println("Masukkan kode Dosen yang akan dicari : ");
+                    String input3 = cari3.next();
+                    if(searchDosen (input3) == true){
+                        System.out.println("data ditemukan");
+                        System.out.println("Kode Dosen : "+d.get(0).getKodeDosen());
+                        System.out.println("Nama Dosen : "+d.get(0).getNama());
+                        System.out.println("Alamat Dosen : "+d.get(0).getAlamat());
+                        System.out.println("Email Dosen : "+d.get(0).getEmail());
+                        System.out.println("Nomor Induk Dosen : "+d.get(0).getNoInduk());
+                    }
+                    else
+                        System.out.println("data tidak ditemukan");
+                    mainMenu();
+                    break;   
+             case 8 : 
+                    Scanner cari4 = new Scanner (System.in);
+                    System.out.println("Masukkan nomor induk mahasiswa yang akan dicari : ");
+                    String input4 = cari4.next();
+                    if(searchMahasiswa (input4)){
+                        System.out.println("data ditemukan");
+                        System.out.println("Nama Mahasiswa : "+d1.get(0).getNamaMhs());
+                        System.out.println("Email : "+d1.get(0).getEmailMhs());
+                        System.out.println("Nomor Induk : "+d1.get(0).getNoIndukMhs());
+                        System.out.println("Alamat Mahasiswa : "+d1.get(0).getAlamatMhs());
+                    }
+                     else
+                        System.out.println("data tidak ditemukan");
+                    mainMenu();
+                    break; 
+              case 9 : 
+                   Scanner cari5 = new Scanner (System.in);
+                    System.out.println("Masukkan kode mata kuliah yang akan dicari : ");
+                    String input5 = cari5.next();
+                    if(searchMatakuliah (input5)){
+                        System.out.println("data ditemukan");
+                        System.out.println("Nama Mata Kuliah : "+d2.get(0).getNamaMK());
+                        System.out.println("Kode Mata Kuliah : "+d2.get(0).getKodeMK());
+                        System.out.println("Kode Dosen Mata Kuliah : "+d2.get(0).getKodeDosenMK());
+                        System.out.println("Nama Dosen Mata Kuliah : "+d2.get(0).getNamaDosen());
+                        System.out.println("Shift Mata Kuliah : "+d2.get(0).getShift());
+                    }
+                     else
+                        System.out.println("data tidak ditemukan");
+                    mainMenu();
+                    break;  
+            }
+        }
+    }
 
