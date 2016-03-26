@@ -1,0 +1,48 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tubes;
+
+/**
+ *
+ * @author Adrian G Nurcahyo
+ */
+public class matakuliah1 {
+    private String namaMK;
+    private String kodeMK;
+    private String kodeDosenMK;
+    private String namaDosen;
+    private String shift;
+
+    public matakuliah1(String namaMK, String kodeMK, String kodeDosenMK, String namaDosen, String shift) {
+        this.namaMK = namaMK;
+        this.kodeMK = kodeMK;
+        this.kodeDosenMK = kodeDosenMK;
+        this.namaDosen = namaDosen;
+        this.shift = shift;
+    }
+
+    public String getNamaMK() {
+        return namaMK;
+    }
+
+    public String getKodeMK() {
+        return kodeMK;
+    }
+
+    public String getKodeDosenMK() {
+        return kodeDosenMK;
+    }
+
+    public String getNamaDosen() {
+        return namaDosen;
+    }
+
+    public String getShift() {
+        return shift;
+    }
+
+    
+}
